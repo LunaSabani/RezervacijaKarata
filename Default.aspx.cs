@@ -24,6 +24,8 @@ namespace RezervacijaKarata
             iscitaj();
             kreirajMesta();
             kreirajTabelu();
+
+
         }
 
         public bool rezervisano(int sediste)
@@ -147,7 +149,10 @@ namespace RezervacijaKarata
                             }
                         }
                         red.Cells.Add(celija);
+
                     }
+                    red.Cells.Add(celija);
+
                     red.BorderWidth = 1;
                     red.BorderStyle = BorderStyle.Solid;
                     red.BorderColor = Color.Black;
@@ -160,6 +165,7 @@ namespace RezervacijaKarata
             string insert;
             insert = "INSERT INTO sedista(id, brojSedista,Ime_prezime,email)";
             insert += "Values('";
+            insert += TextBox1.Text + "','";
             insert += TextBox1.Text + "','";
             insert += TextBox2.Text + "','";
             insert += TextBox3.Text + "')";
@@ -188,6 +194,19 @@ namespace RezervacijaKarata
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+        int br = 0;
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            br++;
+            Button2.Text = br.ToString();
+
+            Random rnd = new Random();
+            Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+
+            Button2.BackColor = randomColor;
+            Color randomColor2 = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Button2.ForeColor = randomColor2;
         }
     }
 }
